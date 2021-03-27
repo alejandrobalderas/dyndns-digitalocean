@@ -8,4 +8,4 @@ RUN pipenv install --skip-lock
 
 COPY main.py .env ./
 
-CMD [ "pipenv", "run", "python", "main.py" ]
+CMD [ "pipenv", "run", "python", "-u", "main.py" ]
