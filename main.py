@@ -12,7 +12,9 @@ current_ip = requests.get("http://ifconfig.me").text
 domains = {
     "balderas.de": [
         "*",
-        "manage"
+        "manage",
+        "server",
+        "cloud"
     ],
     "balderas-home.com": [
         "example",
@@ -57,5 +59,6 @@ while True:
             update_record_ids(record_urls, current_ip)
         last_ip = current_ip
     time.sleep(60)
+    current_ip = requests.get("http://ifconfig.me").text
 
 
