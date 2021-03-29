@@ -4,6 +4,8 @@ import json
 import time
 from typing import List
 
+from datetime import datetime
+
 apikey = os.environ["apikey"]
 
 last_ip = current_ip = "0.0.0.0"
@@ -47,7 +49,7 @@ def update_record_ids(record_urls:List[str], new_ip: str) -> None:
     for record_url in record_urls:
         r = requests.put(record_url, headers=headers, data=json.dumps(new_ip))
         if r.status_code == 200:
-            print(f"Changed record for {record_url} to IP {new_ip['data']}")
+            print(f"{datetime.now()}\tChanged record for {record_url} to IP {new_ip['data']}")
 
 while True:
 
